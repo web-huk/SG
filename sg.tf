@@ -8,6 +8,13 @@ resource "aws_security_group" "wallfire" {
   }
 }
 
+data "aws_security_group" "wallfire" {
+    id          = aws_security_group.wallfire.id
+
+    depends_on = [ aws_security_group.wallfire ]
+}
+
+
 resource "aws_security_group" "Web-SG" {
     vpc_id               = aws_vpc.vnet.id
     description          = local.default_desc

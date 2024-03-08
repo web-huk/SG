@@ -5,9 +5,3 @@ resource "aws_vpc" "vnet" {
         Name   = var.network_details.name
     }
 }
-
-variable "security_group_id" {}
-
-data "aws_security_group" "wallfire" {
-    id          = var.security_group_id
-}
